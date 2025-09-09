@@ -1,16 +1,7 @@
 # Maintainer: Nino K. <aur@assyt.fi>
 
-workflow_artifacts="https://api.github.com/repos/Hassunaama/gurted-linux-ci-autobuild/releases";
-
-digest=$(
-  curl -Ls $workflow_artifacts |
-  grep -m1 '"digest":' |
-  sed -E 's/.*"sha256:([0-9a-f]+)".*/\1/'
-)
-
-
 pkgname=flumi-bin
-_pkgname=Flumi.x86_64
+_pkgname=Flumi-linux.x86_64
 
 pkgver=1.0.1
 pkgrel=1
@@ -25,8 +16,8 @@ provides=()
 conflicts=()
 replaces=()
 
-source=("https://github.com/Hassunaama/gurted-linux-ci-autobuild/releases/download/infinite/flumi.zip" "$pkgname.desktop")
-sha256sums=("69a4beceb93bdfea4833d43d5366844ddbab6c883868ab361a45851a6c745259" "a36f76492d0779302d25cd6770f22385013a1d8cfb3dcaa9fe75060835f3ec60")
+source=("https://github.com/outpoot/gurted/releases/download/v$pkgver/Flumi_Linux.tar.gz" "$pkgname.desktop")
+sha256sums=("6912cd396d0ff1f8e6e2278f147a86050c3b96011bf6ca0e0f4a1843f3716c26" "a36f76492d0779302d25cd6770f22385013a1d8cfb3dcaa9fe75060835f3ec60")
 
 package() {
 	mkdir -p "$pkgdir"/usr/bin
@@ -34,7 +25,10 @@ package() {
 	mkdir -p "$pkgdir"/opt
 
 	cp -r . "$pkgdir"/opt/$pkgname
-	rm "$pkgdir"/opt/$pkgname/flumi.zip
+
+	#very bad hardcoding the archive name dont like this
+	rm "$pkgdir"/opt/$pkgname/Flumi_Linux.tar.gz
+
 	chmod +x "$pkgdir"/opt/$pkgname/$_pkgname
 
 	ln -s /opt/$pkgname/$_pkgname "$pkgdir"/usr/bin/$_pkgname
