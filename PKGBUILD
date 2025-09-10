@@ -17,7 +17,7 @@ conflicts=()
 replaces=()
 
 source=("https://github.com/outpoot/gurted/releases/download/v$pkgver/Flumi_Linux.tar.gz" "$pkgname.desktop")
-sha256sums=("6912cd396d0ff1f8e6e2278f147a86050c3b96011bf6ca0e0f4a1843f3716c26" "a36f76492d0779302d25cd6770f22385013a1d8cfb3dcaa9fe75060835f3ec60")
+sha256sums=("6912cd396d0ff1f8e6e2278f147a86050c3b96011bf6ca0e0f4a1843f3716c26" "e65085bd5504ee003365207ff20547cc0c6b7ff313979fbc25dcd164c4b548f5")
 
 package() {
 	mkdir -p "$pkgdir"/usr/bin
