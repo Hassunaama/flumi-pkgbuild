@@ -1,9 +1,9 @@
 # Maintainer: Nino K. <aur@assyt.fi>
 
 pkgname=flumi-bin
-_pkgname=Flumi-linux.x86_64
+_pkgname=Flumi.x86_64
 
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 epoch=1
 pkgdesc='The wayfinder (browser) for Gurted, a "web ecosystem".'
@@ -17,7 +17,7 @@ conflicts=()
 replaces=()
 
 source=("https://github.com/outpoot/gurted/releases/download/v$pkgver/Flumi_Linux.tar.gz" "$pkgname.desktop")
-sha256sums=("6912cd396d0ff1f8e6e2278f147a86050c3b96011bf6ca0e0f4a1843f3716c26" "e65085bd5504ee003365207ff20547cc0c6b7ff313979fbc25dcd164c4b548f5")
+sha256sums=("c51c92912e292820583fb875e55b81c28bd8197db2affb978e0d245278b72d88" "19befd866c5deafebd476545f12df46e0db8ff2223709bad7b30978596a4336b")
 
 package() {
 	mkdir -p "$pkgdir"/usr/bin
@@ -31,7 +31,7 @@ package() {
 
 	chmod +x "$pkgdir"/opt/$pkgname/$_pkgname
 
-	ln -s /opt/$pkgname/$_pkgname "$pkgdir"/usr/bin/$_pkgname
+	ln -s /opt/$pkgname/$_pkgname "$pkgdir"/usr/bin/$pkgname
 
 	
 	cp $pkgname.desktop "$pkgdir"/usr/share/applications/$pkgname.desktop

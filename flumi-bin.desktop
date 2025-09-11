@@ -1,4 +1,4 @@
 [Desktop Entry]
-Exec=/usr/bin/Flumi-linux.x86_64
+Exec=/usr/bin/flumi-bin
 Name=Flumi
 Type=Application
